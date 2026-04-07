@@ -9,8 +9,9 @@ website:
       - href: index.qmd
         text: Home
       - href: viz.qmd
-        text: viz
-        
+        text: viz      
+      - href: about.qmd
+        text: about
 format:
   html:
     theme: cosmo
