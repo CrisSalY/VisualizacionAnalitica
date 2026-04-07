@@ -1,0 +1,112 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Mi primera visualización con Altair\"\n",
+        "---\n",
+        "\n",
+        "# Dataset\n",
+        "\n",
+        "Vamos a cargar el dataset desde 'vega_datasets':"
+      ],
+      "id": "ea9470bd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import altair as alt\n",
+        "from vega_datasets import data"
+      ],
+      "id": "f37c10ef",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "vamos a usar el dataset 'cars' que viene incluido en 'vega_datasets':"
+      ],
+      "id": "c2d0fbbd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "cars = data.cars()\n",
+        "cars.head()"
+      ],
+      "id": "42769c87",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Gráfico de dispersión\n",
+        "Vamos a crear un gráfico de dispersión para visualizar la relación entre el peso del auto ('Weight_in_lbs') y su rendimiento en millas por galón ('Miles_per_Gallon')."
+      ],
+      "id": "7cb35b3d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "scatter_plot = alt.Chart(cars).mark_circle(size=60).encode(\n",
+        "    x='Weight_in_lbs',\n",
+        "    y='Miles_per_Gallon',\n",
+        "    color='Origin'\n",
+        ").properties(\n",
+        "    title='Relación entre peso y rendimiento de los autos'\n",
+        ")\n",
+        "\n",
+        "scatter_plot"
+      ],
+      "id": "c8f327dc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# visualización de barras\n",
+        "Vamos a crear un gráfico de barras para mostrar el número de autos por país de origen ('Origin')."
+      ],
+      "id": "11c3850b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "bar_chart = alt.Chart(cars).mark_bar().encode(\n",
+        "    x='Origin',\n",
+        "    y='count()',\n",
+        "    color='Origin'\n",
+        ").properties(\n",
+        "    title='Número de autos por país de origen'\n",
+        ")\n",
+        "\n",
+        "bar_chart"
+      ],
+      "id": "0e4c7663",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\User\\Desktop\\Cristina\\Personal\\STUDIES\\MAESTRIA YACHAY\\2doSemestre\\VisualizacionAnalitica\\.venv\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
